@@ -9,6 +9,10 @@ describe('Server', () => {
 		const response = await request.get('/foo');
 		expect(response.status).toEqual(404);
 	});
+	it('handle invalid method', async () => {
+		const response = await request.post('/person');
+		expect(response.status).toEqual(404);
+	});
 	it('handle server errors', async () => {
 		const response = await request.get('/person');
 		expect(response.status).toEqual(500);
